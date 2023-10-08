@@ -174,6 +174,8 @@ class BirchClustering:
         )]
         if len(bgc_ids) < 1:  # check if no bgc_ids
             raise Exception("Not enough input for clustering.")
+        bgc_ids_present = list(features_df.index.values)
+        bgc_ids = list(set(bgc_ids_present) & set(bgc_ids))
         features_df = features_df.loc[bgc_ids]
 
         # initiate birch object
