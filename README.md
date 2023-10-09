@@ -2,32 +2,28 @@
 ----------------------
 ***Bi**osynthetic **G**ene clusters - **S**uper **Li**near **C**lustering **E**ngine*
 
-Quick start
+Important note: this is a version of BiG-SLICE that has been modified to accept the latest version of [MIBiG](https://mibig.secondarymetabolites.org/) database (i.e., v3), and be able to tolerate (and filter out) cases in which no HMM domains can be identified in a BGC sequence. These were the main limitations we had to run this tool.
+
 ---------------------
-1. Make sure you have [HMMer](http://hmmer.org/) (version 3.2b1 or later) installed.
-2. Install **BiG-SLiCE** using pip:
-- from PyPI (stable)
+1. Installation 
 ~~~console
-user@local:~$ pip install bigslice
-~~~
-- from source (bleeding edge)
-~~~console
-user@local:~$ git clone git@github.com:medema-group/bigslice.git
+user@local:~$ git clone https://github.com/pereiramemo/bigslice
 user@local:~$ pip install ./bigslice/
 ~~~
-3. Fetch the latest HMM models (± 470MB gzipped):
+2. Fetch the latest HMM models:
 ~~~console
-user@local:~$ download_bigslice_hmmdb
+user@local:~$ download_bigslice_hmmdb https://s3.amazonaws.com/share.jgi-ga.org/satria/bigslice-models.2022-11-30.tar.gz
 ~~~
+3. Locate your hmm models (e.g., in bigslice-models/sub_pfams/hmm/) and run the following command: 
+`ls PATH_TO_MODELS/hmm/*.hmm | \
+while read LINE; do 
+  hmmpress "${LINE}"; 
+done`
+
 4. Check your installation:
 ~~~console
 user@local:~$ bigslice --version .
 ~~~
-5. Run **BiG-SLiCE** clustering analysis: (see [wiki:Input folder](https://github.com/medema-group/bigslice/wiki/Input-folder) on how to prepare the input folder)
-~~~console
-user@local:~$ bigslice -i <input_folder> <output_folder>
-~~~
-For a "minimal" test run, you can use the [example input folder](https://github.com/medema-group/bigslice/tree/master/misc/input_folder_template) that we provided.
 
 **!Important!** Please read [this note](https://github.com/medema-group/bigslice/issues/19) before taking results from **BiG-SLiCE** for your analysis.
 

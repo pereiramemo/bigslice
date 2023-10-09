@@ -25,12 +25,13 @@ setuptools.setup(
     ],
     python_requires='>=3.7',
     install_requires=[
-        "numpy",
+        "numpy == 1.24",
         "pandas",
         "biopython >= 1.73",
         "scikit-learn",
         "tqdm",
         "pyhmmer",
-        "pyarrow"
+        "pyarrow",
+        "hmm"
     ]
 )
