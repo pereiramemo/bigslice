@@ -23,7 +23,7 @@ setuptools.setup(
     classifiers=[
         "Programming Language :: Python :: 3"
     ],
-    python_requires='==3.8.10',
+    python_requires='==3.9',
     install_requires=[
         "numpy==1.24",
         "pandas",
