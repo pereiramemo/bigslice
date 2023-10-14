@@ -23,15 +23,14 @@ setuptools.setup(
     classifiers=[
         "Programming Language :: Python :: 3"
     ],
-    python_requires='>=3.7',
+    python_requires='==3.8.10',
     install_requires=[
-        "numpy == 1.24",
+        "numpy==1.24",
         "pandas",
         "biopython >= 1.73",
         "scikit-learn",
         "tqdm",
         "pyhmmer",
-        "pyarrow",
-        "hmm"
+        "pyarrow" 
     ]
 )
