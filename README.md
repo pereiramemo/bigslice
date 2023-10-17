@@ -14,7 +14,7 @@ user@local:~$ pip install ./bigslice/
 ~~~console
 user@local:~$ download_bigslice_hmmdb https://s3.amazonaws.com/share.jgi-ga.org/satria/bigslice-models.2022-11-30.tar.gz
 ~~~
-3. Locate your hmm models (e.g., in bigslice-models/sub_pfams/hmm/) and run the following command: 
+3. Locate your hmm models (e.g., in ./usr/local/bin/bigslice-models/sub_pfams/hmm/*.hmm) and run the following command: 
 ```
 ls PATH_TO_MODELS/hmm/*.hmm | \
 while read LINE; do 
