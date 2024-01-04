@@ -1,0 +1,18 @@
+This document lists all the modifications that were done in order to make
+BiG-SLICE run.
+
+1- Use numpy=1.24 in the installation (previous versions have a compatibility problem)
+
+2- Download the updated HMMs database: download_bigslice_hmmdb https://s3.amazonaws.com/share.jgi-ga.org/satria/bigslice-models.2022-11-30.tar.gz
+
+3- Modify line 98 of the bgc.py module to accept “False” as a version
+(i.e., if antismash_version.split(".")[0] in ["5", "6", "7", "False"]:)
+In this way it is possible for BiGSLICE to recognize the MIBiG 3 GenBank.
+
+4- Check that the bgc_ids for which the “features” (i.e., hmm annotations) are going to be extracted are present in the features data.frame. For this I added the following two lines (177 and 178 of the birch.py ​​module):
+
+bgc_ids_present = list(features_df.index.values)
+bgc_ids = list(set(bgc_ids_present) & set(bgc_ids))
+
+To then run the original line (179):
+features_df = features_df.loc[bgc_ids]
