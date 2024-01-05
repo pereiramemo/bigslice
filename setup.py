@@ -27,7 +27,7 @@ setuptools.setup(
     install_requires=[
         "numpy==1.24",
         "pandas",
-        "biopython == 1.73",
+        "biopython==1.81",
         "scikit-learn",
         "tqdm",
         "pyhmmer",
